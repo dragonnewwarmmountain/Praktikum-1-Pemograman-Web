@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan LAB IR - Jufe Adrian Lokollo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="bg-orb orb-4"></div>
+    <div class="bg-orb orb-5"></div>
+    <div class="bg-orb orb-6"></div>
+
+    <div class="main-wrapper">
+        <h1>Laporan Teori Pemrograman Web</h1>
+        
+        <div class="theory-block">
+            <span class="question-label">1. Pertanyaan seputar tag</span>
+            <div class="answer-box">
+                a. Apa yang dimaksud dengan tag pada html? <br>
+                Tag adalah karakter-karakter yang berada di dalam tanda kurung bersudut (angled brackets) yang berfungsi memberikan makna khusus pada informasi yang dikelilinginya. Tag bertindak seperti wadah yang memberi tahu browser mengenai karakteristik informasi yang berada di antara tag pembuka dan tag penutupnya.
+                <br><br>
+                b. Apa itu pembuka dan penutup tag? <br> Apakah hal tersebut terdapat pada semua jenis tag? <br>
+                Tag pembuka menandakan awal dari sebuah bagian konten, sedangkan tag penutup menandakan akhir dari bagian konten tersebut. Tag penutup ditulis dengan menambahkan karakter garis miring (forward slash) tepat setelah tanda kurung bersudut yang pertama. Hal ini tidak terdapat pada semua jenis tag. Ada beberapa elemen yang tidak mengapit teks apa pun di antara tag pembuka dan penutupnya; elemen-elemen ini dikenal sebagai elemen kosong (empty elements) dan biasanya ditulis hanya dengan satu tag.
+            </div>
+
+            <span class="question-label">2. Pertanyaan seputar element</span>
+            <div class="answer-box">
+                a. Apa yang dimaksud dengan element?<br> 
+                Sebuah elemen merupakan kesatuan yang terdiri dari tag pembuka, tag penutup, serta seluruh konten yang berada di antara kedua tag tersebut.<br><br>
+
+                b. Apa yang dimaksud dengan tagname, attribute dan content pada element?<br>
+                -Tagname: Karakter yang tertulis di dalam tanda kurung bersudut yang mengindikasikan tujuan atau fungsi spesifik dari tag tersebut.<br>
+                -Attribute: Komponen yang memberikan informasi tambahan mengenai konten dari sebuah elemen. Atribut selalu diletakkan pada tag pembuka dan terdiri dari dua bagian, yaitu nama dan nilai (value), yang dipisahkan dengan tanda sama dengan. Nama atribut mengindikasikan jenis informasi ekstra apa yang sedang diberikan.<br>
+                -Content: Informasi, teks, atau bagian apa pun yang terletak di antara tag pembuka dan tag penutup.<br><br> 
+
+                c. Apakah elemen dapat ditumpuk? Apa yang terjadi bila demikian?<br>
+                Ya, elemen dapat ditumpuk atau disarangkan (nested) di dalam elemen lainnya. Ketika sebuah elemen ditumpuk di dalam elemen tingkat-blok (block-level element) lainnya, elemen yang berada di sisi luar dikenal sebagai elemen penampung (containing element) atau elemen induk (parent element). Browser akan memperlakukan elemen yang ditumpuk sebagai elemen turunan; misalnya pada daftar yang ditumpuk (nested lists), browser akan menampilkan daftar tersebut dengan lekukan (indentasi) yang lebih jauh ke dalam dibandingkan daftar induknya.
+            </div>
+        </div>
+
+        <table class="multimedia-table">
+            <thead>
+                <tr>
+                    <th>Struktur Teks</th>
+                    <th>Gambar (Alt)</th>
+                    <th>Audio Source</th>
+                    <th>Video Autoplay</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tag &lt;p&gt; untuk paragraf dan &lt;h1-h6&gt; untuk judul hierarkis.</td>
+                    <td>Atribut 'alt' muncul sebagai teks pengganti jika file gambar tidak ditemukan atau gagal dimuat.</td>
+                    <td>Menggunakan URL absolut dari web ke dalam atribut src pada tag &lt;audio&gt;.</td>
+                    <td>Wajib menambahkan atribut 'muted' agar autoplay berfungsi di browser modern.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="praktikum-form-container">
+            <h2>Formulir Data Diri</h2>
+            <form action="success.html" method="GET">
+                <table style="width: 100%;">
+                    <tr>
+                        <td><strong>Nama Lengkap</strong></td>
+                        <td><input type="text" class="input-field" name="nama" value="Jufe Adrian Lokollo" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NIM (Max 15 Karakter)</strong></td>
+                        <td><input type="text" class="input-field" name="nim" maxlength="15" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tanggal Praktikum</strong></td>
+                        <td><input type="date" class="input-field" name="tgl" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center; padding-top: 30px;">
+                            <button type="submit" class="btn-submit">Kirim Laporan</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
