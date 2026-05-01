@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Pengiriman - Jufe Adrian Lokollo</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Mencegah scrollbar muncul */
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mengatur GIF agar sebesar halaman web (100%) */
+        .gif-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* Memastikan GIF menutupi layar tanpa distorsi */
+            z-index: -1; /* Meletakkan GIF di belakang konten */
+        }
+
+        /* Kontainer Pesan dengan efek Glassmorphism */
+        .message-box {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 60px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #0f2c45;
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://i0.wp.com/media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHUzdHJxNjN4bzBxZG1kOTc5NW02Y3V5NmVscG5uMWF3aHZtb3VzZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/artj92V8o75VPL7AeQ/giphy.gif" 
+         alt="Celebration" class="gif-background">
+
+    <div class="message-box">
+        <h1>Data Telah Berhasil di Kirim</h1>
+    </div>
+
+</body>
+</html>
