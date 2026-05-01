@@ -1,1 +1,496 @@
+/* ============================================================
+   Y2K FRUTIGER AERO — Full Design System
+   Aesthetic: Sky · Water · Glass · Nature · Gloss · Aqua
+   ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+    --sky-pale:   #dff5ff;
+    --sky-mid:    #8ed4f4;
+    --sky-deep:   #30a8f0;
+    --aqua:       #00c4d4;
+    --aqua-light: #80e0e8;
+    --mint:       #a8e6cf;
+    --lime:       #b8e84e;
+    --lime-mid:   #82c418;
+
+    --glass-fill:      rgba(255, 255, 255, 0.50);
+    --glass-fill-alt:  rgba(255, 255, 255, 0.35);
+    --border-top:      rgba(255, 255, 255, 0.95);
+    --border-side:     rgba(255, 255, 255, 0.42);
+
+    --text-navy:  #082d52;
+    --text-blue:  #145090;
+    --text-mid:   #1e6090;
+
+    --shadow-sky:  rgba(18, 80, 150, 0.20);
+    --glow-aqua:   rgba(0, 196, 212, 0.40);
+}
+
+/* ── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── CUSTOM SCROLLBAR ───────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track {
+    background: rgba(144, 212, 244, 0.18);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--aqua-light), var(--sky-deep));
+    border-radius: 4px;
+    border: 1.5px solid rgba(255,255,255,0.55);
+}
+
+/* ── BODY / SKY BACKGROUND ──────────────────────────────── */
+body {
+    font-family: 'Nunito', 'Trebuchet MS', Tahoma, sans-serif;
+    min-height: 100vh;
+    padding: 44px 20px 88px;
+    color: var(--text-navy);
+    line-height: 1.75;
+    overflow-x: hidden;
+    position: relative;
+
+    /* Signature Frutiger Aero sky — layered radials + directional gradient */
+    background:
+        radial-gradient(ellipse 90% 55% at 12% -8%,  rgba(210,246,255,0.9)  0%, transparent 55%),
+        radial-gradient(ellipse 65% 48% at 92%  4%,  rgba(190,242,220,0.85) 0%, transparent 52%),
+        radial-gradient(ellipse 75% 55% at  2% 88%,  rgba(200,248,210,0.75) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 42% at 88% 90%,  rgba(180,232,255,0.70) 0%, transparent 48%),
+        linear-gradient(172deg, #e6f9ff 0%, #acddf6 26%, #72c8ec 50%, #90d8c8 73%, #b0e484 100%);
+    background-attachment: fixed;
+}
+
+/* ── FLOATING BACKGROUND ORBS ───────────────────────────── */
+.bg-orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+}
+
+/* Each orb: radial from bright specular → mid colour → transparent */
+.orb-1 {
+    width: 360px; height: 360px;
+    top: -110px; left: -90px;
+    background: radial-gradient(circle at 30% 26%,
+        rgba(255,255,255,.90) 0%,
+        rgba(170,225,255,.55) 28%,
+        rgba(48,168,240,.18) 62%,
+        transparent 100%);
+    animation: orbA 21s ease-in-out infinite;
+}
+.orb-2 {
+    width: 260px; height: 260px;
+    top: 52%; right: -70px;
+    background: radial-gradient(circle at 30% 26%,
+        rgba(255,255,255,.85) 0%,
+        rgba(160,232,207,.50) 28%,
+        rgba(90,195,145,.14) 62%,
+        transparent 100%);
+    animation: orbB 26s ease-in-out infinite;
+}
+.orb-3 {
+    width: 155px; height: 155px;
+    top: 20%; left: 2.5%;
+    background: radial-gradient(circle at 32% 28%,
+        rgba(255,255,255,.92) 0%,
+        rgba(0,196,212,.38) 38%,
+        transparent 80%);
+    animation: orbC 17s ease-in-out infinite;
+}
+.orb-4 {
+    width: 210px; height: 210px;
+    bottom: 7%; left: 22%;
+    background: radial-gradient(circle at 30% 26%,
+        rgba(255,255,255,.72) 0%,
+        rgba(184,232,78,.38) 34%,
+        rgba(130,196,24,.10) 68%,
+        transparent 100%);
+    animation: orbA 23s ease-in-out infinite reverse;
+}
+.orb-5 {
+    width: 104px; height: 104px;
+    top: 40%; right: 11%;
+    background: radial-gradient(circle at 32% 28%,
+        rgba(255,255,255,.96) 0%,
+        rgba(142,212,244,.52) 40%,
+        transparent 82%);
+    animation: orbB 15s ease-in-out infinite;
+}
+.orb-6 {
+    width: 64px; height: 64px;
+    top: 13%; right: 28%;
+    background: radial-gradient(circle at 32% 28%,
+        rgba(255,255,255,1) 0%,
+        rgba(0,196,212,.45) 48%,
+        transparent 82%);
+    animation: orbC 12s ease-in-out infinite reverse;
+}
+
+@keyframes orbA {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33%      { transform: translate(14px,-24px) scale(1.03); }
+    66%      { transform: translate(-9px,-14px) scale(.97); }
+}
+@keyframes orbB {
+    0%,100% { transform: translate(0,0) scale(1); }
+    40%      { transform: translate(-18px,-28px) scale(1.05); }
+    70%      { transform: translate(11px,-10px) scale(.95); }
+}
+@keyframes orbC {
+    0%,100% { transform: translate(0,0); }
+    50%      { transform: translate(7px,-18px); }
+}
+
+/* ── MAIN WRAPPER ───────────────────────────────────────── */
+.main-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 52px 48px 56px;
+    border-radius: 28px;
+
+    /* Layered glass fill */
+    background: linear-gradient(
+        150deg,
+        rgba(255,255,255,.66) 0%,
+        rgba(255,255,255,.42) 42%,
+        rgba(198,240,255,.30) 100%
+    );
+    backdrop-filter: blur(22px) saturate(148%);
+    -webkit-backdrop-filter: blur(22px) saturate(148%);
+
+    /* Light-source borders: bright top-left, soft bottom-right */
+    border-top:    1.5px solid rgba(255,255,255,.96);
+    border-left:   1.5px solid rgba(255,255,255,.88);
+    border-bottom: 1.5px solid rgba(180,224,255,.32);
+    border-right:  1.5px solid rgba(180,224,255,.32);
+
+    box-shadow:
+        0 22px 64px rgba(14,72,136,.18),
+        0  8px 24px rgba(48,168,240,.12),
+        inset 0  2px 0 rgba(255,255,255,.82),
+        inset 0 -1px 0 rgba(170,215,255,.28);
+
+    animation: panelIn 0.72s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes panelIn {
+    from { opacity: 0; transform: translateY(28px) scale(.977); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* Specular streak at top of panel */
+.main-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 6%; right: 6%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%, rgba(255,255,255,.96) 30%,
+        white        50%, rgba(255,255,255,.96) 70%,
+        transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────── */
+h1 {
+    font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: .3px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg,
+        #09406a 0%, #1672b8 40%, #0098c0 72%, #00b090 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 8px rgba(0,148,192,.22));
+}
+
+h2 {
+    font-size: 1.28rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 26px;
+    background: linear-gradient(135deg,
+        #09406a 0%, #1460b0 48%, #0088b4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── THEORY BLOCK ───────────────────────────────────────── */
+.theory-block { margin-bottom: 34px; }
+
+.question-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 800;
+    font-size: 1.02em;
+    letter-spacing: .25px;
+    color: #0b4e80;
+    margin-bottom: 12px;
+    padding: 5px 18px 5px 13px;
+    background: linear-gradient(135deg,
+        rgba(0,196,212,.16) 0%,
+        rgba(48,168,240,.10) 100%);
+    border: 1px solid rgba(0,196,212,.38);
+    border-radius: 22px;
+}
+
+/* Glowing aqua dot */
+.question-label::before {
+    content: '';
+    display: inline-block;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%,
+        #a0eef4 0%, var(--aqua) 55%, #0088b0 100%);
+    box-shadow: 0 0 8px rgba(0,196,212,.70), 0 0 2px rgba(0,196,212,1);
+    flex-shrink: 0;
+}
+
+.answer-box {
+    position: relative;
+    background: linear-gradient(148deg,
+        rgba(255,255,255,.74) 0%,
+        rgba(255,255,255,.46) 48%,
+        rgba(215,244,255,.36) 100%);
+    padding: 20px 24px 20px 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.72);
+    border-left: 4px solid var(--aqua);
+    margin-bottom: 22px;
+    box-shadow:
+        0 4px 18px rgba(0,96,160,.07),
+        inset 0 1px 0 rgba(255,255,255,.90),
+        inset 0 0 22px rgba(255,255,255,.38);
+    transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.answer-box:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 9px 28px rgba(0,96,160,.13),
+        0 0 0 1px rgba(0,196,212,.22),
+        inset 0 1px 0 rgba(255,255,255,.90),
+        inset 0 0 22px rgba(255,255,255,.48);
+}
+
+/* ── MULTIMEDIA TABLE ───────────────────────────────────── */
+.multimedia-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px;
+    margin: 30px 0;
+}
+
+.multimedia-table th {
+    position: relative;
+    overflow: hidden;
+    padding: 15px 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: .88em;
+    letter-spacing: .4px;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,.32);
+
+    /* Iconic Y2K glossy split gradient */
+    background: linear-gradient(to bottom,
+        #82d6fc 0%,
+        #3cb2ea 47%,
+        #1574c6 50%,   /* hard seam — key Frutiger Aero detail */
+        #1d8ed8 100%);
+    border-top:    1px solid rgba(255,255,255,.72);
+    border-left:   1px solid rgba(255,255,255,.40);
+    border-bottom: 1px solid rgba(0,70,148,.28);
+    border-right:  1px solid rgba(0,70,148,.18);
+    box-shadow:
+        0 4px 14px rgba(16,96,200,.28),
+        inset 0 1px 0 rgba(255,255,255,.62);
+}
+
+/* Glass sheen overlay — top half only */
+.multimedia-table th::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 50% 0;
+    background: linear-gradient(to bottom,
+        rgba(255,255,255,.32) 0%,
+        rgba(255,255,255,.06) 100%);
+    border-radius: 12px 12px 0 0;
+    pointer-events: none;
+}
+
+.multimedia-table td {
+    background: linear-gradient(148deg,
+        rgba(255,255,255,.66) 0%,
+        rgba(228,248,255,.40) 100%);
+    padding: 18px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.76);
+    border-bottom: 1px solid rgba(175,220,255,.38);
+    border-right:  1px solid rgba(175,220,255,.38);
+    font-size: .93em;
+    vertical-align: top;
+    box-shadow:
+        0 2px 8px rgba(0,80,160,.05),
+        inset 0 1px 0 rgba(255,255,255,.82);
+}
+
+/* ── FORM CONTAINER ─────────────────────────────────────── */
+.praktikum-form-container {
+    position: relative;
+    background: linear-gradient(152deg,
+        rgba(255,255,255,.57) 0%,
+        rgba(218,244,255,.36) 100%);
+    padding: 38px 42px 42px;
+    border-radius: 22px;
+    margin-top: 44px;
+    border: 1px solid rgba(255,255,255,.76);
+    border-top: 1.5px solid rgba(255,255,255,.96);
+    box-shadow:
+        0 10px 36px rgba(0,80,160,.10),
+        inset 0 2px 0 rgba(255,255,255,.88),
+        inset 0 0 34px rgba(255,255,255,.28);
+}
+
+/* Form label cells */
+.praktikum-form-container table { width: 100%; border-collapse: collapse; }
+.praktikum-form-container table td {
+    padding: 11px 10px;
+    vertical-align: middle;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+.praktikum-form-container table td:first-child {
+    width: 220px;
+    padding-right: 18px;
+    font-weight: 800;
+    font-size: .95em;
+    color: var(--text-blue);
+}
+
+/* ── INPUTS ─────────────────────────────────────────────── */
+.input-field {
+    width: 100%;
+    padding: 13px 17px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .95em;
+    font-weight: 600;
+    color: var(--text-navy);
+
+    /* Inset screen/depression effect */
+    background: linear-gradient(to bottom,
+        rgba(224,244,255,.92) 0%,
+        rgba(255,255,255,.96) 12%,
+        rgba(255,255,255,.98) 100%);
+    border: 1px solid rgba(140,195,238,.52);
+    border-top-color:  rgba(96,154,218,.42);
+    border-left-color: rgba(96,154,218,.36);
+    border-radius: 11px;
+    box-shadow:
+        inset 0 2px 7px rgba(0,80,160,.09),
+        inset 0 1px 3px rgba(0,0,0,.04),
+        0 1px 0 rgba(255,255,255,.90);
+    outline: none;
+    transition: all .28s cubic-bezier(.4,0,.2,1);
+}
+
+.input-field:hover:not(:focus) { border-color: rgba(0,196,212,.42); }
+
+.input-field:focus {
+    background: rgba(255,255,255,.99);
+    border-color: rgba(0,196,212,.68);
+    box-shadow:
+        inset 0 2px 7px rgba(0,80,160,.07),
+        0 0 0 3.5px rgba(0,196,212,.20),
+        0 0 14px rgba(0,196,212,.14);
+}
+
+/* ── SUBMIT BUTTON ──────────────────────────────────────── */
+.btn-submit {
+    position: relative;
+    overflow: hidden;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.02em;
+    font-weight: 900;
+    letter-spacing: .5px;
+    color: #fff;
+    padding: 15px 54px;
+    cursor: pointer;
+    border-radius: 32px;
+
+    /* The classic Y2K two-tone gloss with hard seam */
+    background: linear-gradient(to bottom,
+        #72d6fc 0%,
+        #34b2f0 44%,
+        #0d78ca 50%,   /* hard specular seam */
+        #158ce2 100%);
+    border-top:    1.5px solid rgba(255,255,255,.78);
+    border-left:   1px   solid rgba(255,255,255,.50);
+    border-bottom: 1.5px solid rgba(0,56,128,.42);
+    border-right:  1px   solid rgba(0,56,128,.30);
+    box-shadow:
+        0 7px 24px rgba(16,116,200,.44),
+        0 2px 7px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.72);
+    text-shadow: 0 1px 3px rgba(0,0,0,.32);
+    transition: all .24s cubic-bezier(.4,0,.2,1);
+}
+
+/* Top-half gloss overlay */
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 50% 0;
+    background: linear-gradient(to bottom,
+        rgba(255,255,255,.38) 0%,
+        rgba(255,255,255,.07) 100%);
+    border-radius: 32px 32px 0 0;
+    pointer-events: none;
+}
+
+/* Diagonal shine sweep on hover */
+.btn-submit::after {
+    content: '';
+    position: absolute;
+    top: -60%; left: -80%;
+    width: 55%; height: 220%;
+    background: linear-gradient(105deg,
+        transparent 0%,
+        rgba(255,255,255,.38) 50%,
+        transparent 100%);
+    transform: skewX(-20deg);
+    transition: left .55s ease;
+    pointer-events: none;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px) scale(1.035);
+    background: linear-gradient(to bottom,
+        #8cdefe 0%, #52c4f4 44%, #0e86d8 50%, #1a9cec 100%);
+    box-shadow:
+        0 12px 34px rgba(16,116,200,.52),
+        0 4px 10px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.78);
+}
+.btn-submit:hover::after { left: 115%; }
+
+.btn-submit:active {
+    transform: translateY(0) scale(.99);
+    box-shadow:
+        0 3px 12px rgba(16,116,200,.32),
+        inset 0 2px 5px rgba(0,0,0,.15);
+}
